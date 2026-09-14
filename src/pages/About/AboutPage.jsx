@@ -4,6 +4,7 @@ import { LocalBusinessSchema } from '../../seo/JsonLd';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
 import ClipReveal from '../../components/ClipReveal/ClipReveal';
+import SvgDivider from '../../components/SvgDivider/SvgDivider';
 import { CLINIC_INTERIOR, DOCTOR_PHOTO } from '../../assets/images';
 import { CheckCircle2, ShieldCheck, Sparkles, Stethoscope } from 'lucide-react';
 
@@ -36,6 +37,9 @@ export default function AboutPage() {
               </div>
             </ClipReveal>
           </div>
+        </div>
+        <div className={styles.dividerWrapper}>
+          <SvgDivider fill="var(--ink)" type="wave" />
         </div>
       </section>
 
@@ -82,6 +86,9 @@ export default function AboutPage() {
             </ScrollReveal>
           </div>
         </div>
+        <div className={styles.dividerWrapper}>
+          <SvgDivider fill="var(--offwhite)" type="wave" />
+        </div>
       </section>
 
       {/* 3. Core Pillars */}
@@ -94,7 +101,7 @@ export default function AboutPage() {
           </div>
           
           <div className={styles.pillarsGrid}>
-            <ScrollReveal delay={0.1}>
+            <ScrollReveal delay={0.1} className={styles.pillarWrapper}>
               <div className={styles.pillarCard}>
                 <div className={styles.pillarIcon}>
                   <ShieldCheck size={40} strokeWidth={1.5} />
@@ -106,7 +113,7 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
             
-            <ScrollReveal delay={0.2}>
+            <ScrollReveal delay={0.2} className={styles.pillarWrapper}>
               <div className={styles.pillarCard}>
                 <div className={styles.pillarIcon}>
                   <Stethoscope size={40} strokeWidth={1.5} />
@@ -118,7 +125,7 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.3}>
+            <ScrollReveal delay={0.3} className={styles.pillarWrapper}>
               <div className={styles.pillarCard}>
                 <div className={styles.pillarIcon}>
                   <Sparkles size={40} strokeWidth={1.5} />
@@ -130,6 +137,9 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
           </div>
+        </div>
+        <div className={styles.dividerWrapper}>
+          <SvgDivider fill="var(--ink)" type="wave" />
         </div>
       </section>
 
