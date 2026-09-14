@@ -20,7 +20,11 @@ export default function InteractiveShowcase({ image, hotspots, title = "Treatmen
           <motion.div 
             key={spot.id}
             className={styles.hotspotContainer}
-            style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+            style={{ 
+              left: `${spot.x}%`, 
+              top: `${spot.y}%`,
+              zIndex: activeHotspot === spot.id ? 100 : 10
+            }}
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
