@@ -72,7 +72,7 @@ img, picture, svg, video {
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding-inline: var(--container-padding);
 }
 
 /* Custom Thin Scrollbar */
