@@ -1,6 +1,7 @@
 import SEOHead from '../../seo/SEOHead';
 import { pageSEO } from '../../seo/seoConfig';
 import { LocalBusinessSchema } from '../../seo/JsonLd';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
 import ClipReveal from '../../components/ClipReveal/ClipReveal';
 import { CLINIC_INTERIOR, DOCTOR_PHOTO } from '../../assets/images';
@@ -11,6 +12,7 @@ import styles from './AboutPage.module.css';
 export default function AboutPage() {
   return (
     <main className={styles.pageWrapper}>
+      <Breadcrumbs paths={[{ name: 'About Us', link: null }]} />
       <SEOHead {...pageSEO.about} />
       <LocalBusinessSchema />
       

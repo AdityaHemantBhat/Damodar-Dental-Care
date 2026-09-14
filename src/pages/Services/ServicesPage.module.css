@@ -1,11 +1,25 @@
 .pageWrapper {
   padding-top: var(--nav-height);
   background-color: var(--cream);
+  position: relative;
+}
+
+.dividerWrapper {
+  position: absolute;
+  bottom: -1px; /* Prevents 1px gap bug */
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .inner {
   padding-top: 80px;
-  padding-bottom: 120px;
+  padding-bottom: 40px;
+}
+
+.inner + .inner {
+  padding-top: 20px;
+  padding-bottom: 160px; /* Extra padding before the wave divider */
 }
 
 .grid {
@@ -65,6 +79,11 @@
 @media (max-width: 768px) {
   .inner {
     padding-top: 40px;
+    padding-bottom: 24px;
+  }
+  
+  .inner + .inner {
+    padding-top: 16px;
     padding-bottom: 120px;
   }
 }

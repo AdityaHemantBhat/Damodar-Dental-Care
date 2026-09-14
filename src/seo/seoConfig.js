@@ -25,4 +25,9 @@ export const pageSEO = {
     description: "Get in touch with Damodar Dental Care in Margao, Goa. Call us or visit our clinic for a consultation.",
     canonical: "https://damodardental.co.in/contact",
   },
+  guidance: {
+    title: "Appointment Guidance | Damodar Dental Care",
+    description: "Learn how to book an appointment, what to expect on your first visit, and our payment and cancellation policies.",
+    canonical: "https://damodardental.co.in/appointment-guidance",
+  }
 };

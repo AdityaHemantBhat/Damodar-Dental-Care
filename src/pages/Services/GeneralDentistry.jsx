@@ -1,11 +1,15 @@
 import SEOHead from '../../seo/SEOHead';
-import { SERVICE_GENERAL } from '../../assets/images';
+import { SERVICE_GENERAL, ANATOMY_GENERAL } from '../../assets/images';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
+import InteractiveShowcase from '../../components/InteractiveShowcase/InteractiveShowcase';
+import SvgDivider from '../../components/SvgDivider/SvgDivider';
 import styles from './ServicesPage.module.css';
 
 export default function GeneralDentistry() {
   return (
     <main className={styles.pageWrapper}>
+      <Breadcrumbs paths={[{ name: 'Services', link: null }, { name: 'General Dentistry', link: null }]} />
       <SEOHead 
         title="General Dentistry | Damodar Dental Care" 
         description="Comprehensive check-ups, cleaning, and preventative care in Margao, Goa."
@@ -43,6 +47,24 @@ export default function GeneralDentistry() {
             </ScrollReveal>
           </div>
         </div>
+      </div>
+
+      <div className={`container ${styles.inner}`}>
+        <ScrollReveal>
+          <InteractiveShowcase 
+            image={ANATOMY_GENERAL} 
+            title="General Care Focus Areas"
+            hotspots={[
+              { id: 1, x: 20, y: 30, align: 'alignLeft', title: "Cavity Prevention", description: "Deep cleaning and sealing of the molar grooves to prevent decay." },
+              { id: 2, x: 50, y: 75, align: 'alignCenter', title: "Periodontal Health", description: "Thorough cleaning below the gumline to prevent and treat gum disease." },
+              { id: 3, x: 50, y: 25, align: 'alignCenter', title: "Plaque Removal", description: "Gentle, professional polishing to remove stubborn plaque and tartar." }
+            ]}
+          />
+        </ScrollReveal>
+      </div>
+
+      <div className={styles.dividerWrapper}>
+        <SvgDivider fill="var(--ink)" type="wave" />
       </div>
     </main>
   );

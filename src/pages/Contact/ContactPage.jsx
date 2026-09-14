@@ -2,10 +2,12 @@ import SEOHead from '../../seo/SEOHead';
 import { pageSEO } from '../../seo/seoConfig';
 import { LocalBusinessSchema } from '../../seo/JsonLd';
 import Location from '../../features/Location/Location';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 export default function ContactPage() {
   return (
     <main style={{ paddingTop: 'var(--nav-height)' }}>
+      <Breadcrumbs paths={[{ name: 'Contact Us', link: null }]} />
       <SEOHead {...pageSEO.contact} />
       <LocalBusinessSchema />
       

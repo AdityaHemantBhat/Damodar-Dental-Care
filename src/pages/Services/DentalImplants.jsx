@@ -1,11 +1,15 @@
 import SEOHead from '../../seo/SEOHead';
-import { SERVICE_IMPLANTS } from '../../assets/images';
+import { SERVICE_IMPLANTS, ANATOMY_IMPLANT } from '../../assets/images';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
+import InteractiveShowcase from '../../components/InteractiveShowcase/InteractiveShowcase';
+import SvgDivider from '../../components/SvgDivider/SvgDivider';
 import styles from './ServicesPage.module.css';
 
 export default function DentalImplants() {
   return (
     <main className={styles.pageWrapper}>
+      <Breadcrumbs paths={[{ name: 'Services', link: null }, { name: 'Dental Implants', link: null }]} />
       <SEOHead 
         title="Dental Implants | Damodar Dental Care" 
         description="Permanent, natural-looking replacements for missing teeth in Margao, Goa."
@@ -43,6 +47,24 @@ export default function DentalImplants() {
             </ScrollReveal>
           </div>
         </div>
+      </div>
+
+      <div className={`container ${styles.inner}`}>
+        <ScrollReveal>
+          <InteractiveShowcase 
+            image={ANATOMY_IMPLANT} 
+            title="Implant Anatomy"
+            hotspots={[
+              { id: 1, x: 50, y: 25, align: 'alignCenter', title: "Custom Ceramic Crown", description: "Expertly color-matched to seamlessly blend with your natural teeth." },
+              { id: 2, x: 50, y: 45, align: 'alignCenter', title: "Secure Connector", description: "A precision-milled abutment that permanently locks the crown to the implant." },
+              { id: 3, x: 50, y: 75, align: 'alignCenter', title: "Titanium Post", description: "Biocompatible titanium that fuses naturally with your jawbone for lifelong stability." }
+            ]}
+          />
+        </ScrollReveal>
+      </div>
+
+      <div className={styles.dividerWrapper}>
+        <SvgDivider fill="var(--ink)" type="wave" />
       </div>
     </main>
   );

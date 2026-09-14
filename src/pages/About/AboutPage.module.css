@@ -1,14 +1,15 @@
 .pageWrapper {
-  background-color: var(--offwhite);
+  background-color: var(--cream);
   min-height: 100dvh;
   padding-bottom: 80px;
+  padding-top: var(--nav-height);
 }
 
 /* 1. Heritage Hero */
 .hero {
-  padding: 160px 0 100px;
+  padding: 80px 0 100px;
   background-color: var(--cream);
-  min-height: 80vh;
+  min-height: calc(80vh - var(--nav-height));
   display: flex;
   align-items: center;
 }

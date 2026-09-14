@@ -17,6 +17,7 @@ import Orthodontics from './pages/Services/Orthodontics';
 import RootCanal from './pages/Services/RootCanal';
 import AboutPage from './pages/About/AboutPage';
 import ContactPage from './pages/Contact/ContactPage';
+import AppointmentGuidance from './pages/AppointmentGuidance/AppointmentGuidance';
 
 function App() {
   const location = useLocation();
@@ -25,7 +26,7 @@ function App() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
@@ -71,6 +72,7 @@ function App() {
             <Route path="/services/root-canal-treatment" element={<RootCanal />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/appointment-guidance" element={<AppointmentGuidance />} />
           </Routes>
         </PageTransition>
       </AnimatePresence>

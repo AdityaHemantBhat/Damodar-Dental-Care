@@ -1,11 +1,15 @@
 import SEOHead from '../../seo/SEOHead';
-import { SERVICE_ROOT_CANAL } from '../../assets/images';
+import { SERVICE_ROOT_CANAL, ANATOMY_ROOT_CANAL } from '../../assets/images';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
+import InteractiveShowcase from '../../components/InteractiveShowcase/InteractiveShowcase';
+import SvgDivider from '../../components/SvgDivider/SvgDivider';
 import styles from './ServicesPage.module.css';
 
 export default function RootCanal() {
   return (
     <main className={styles.pageWrapper}>
+      <Breadcrumbs paths={[{ name: 'Services', link: null }, { name: 'Root Canal Treatment', link: null }]} />
       <SEOHead 
         title="Root Canal Treatment | Damodar Dental Care" 
         description="Painless endodontic procedures to save and restore infected teeth in Margao, Goa."
@@ -43,6 +47,24 @@ export default function RootCanal() {
             </ScrollReveal>
           </div>
         </div>
+      </div>
+
+      <div className={`container ${styles.inner}`}>
+        <ScrollReveal>
+          <InteractiveShowcase 
+            image={ANATOMY_ROOT_CANAL} 
+            title="Inside a Root Canal"
+            hotspots={[
+              { id: 1, x: 50, y: 40, align: 'alignCenter', title: "Infected Tissue Removal", description: "Carefully removing the damaged nerve and pulp from inside the tooth." },
+              { id: 2, x: 50, y: 70, align: 'alignCenter', title: "Thorough Disinfection", description: "Cleaning and shaping the root canals to prepare for a sterile filling." },
+              { id: 3, x: 50, y: 15, align: 'alignCenter', title: "Final Protective Crown", description: "Sealing the tooth with a custom crown to restore full strength and function." }
+            ]}
+          />
+        </ScrollReveal>
+      </div>
+
+      <div className={styles.dividerWrapper}>
+        <SvgDivider fill="var(--ink)" type="wave" />
       </div>
     </main>
   );

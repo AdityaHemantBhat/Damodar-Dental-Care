@@ -20,11 +20,22 @@ export const SERVICE_ROOT_CANAL = rootCanal;
 import clinicReception from './clinic_reception.jpg';
 import clinicTreatment from './clinic_treatment.jpg';
 
+import anatomyGeneral from './anatomy_general_1789364298492.jpg';
+import anatomyCosmetic from './anatomy_cosmetic_1789364309828.jpg';
+import anatomyImplant from './anatomy_implant_1789364325741.jpg';
+import anatomyOrtho from './anatomy_ortho_1789364345247.jpg';
+import anatomyRootCanal from './anatomy_root_canal_1789364355916.jpg';
+
+export const ANATOMY_GENERAL = anatomyGeneral;
+export const ANATOMY_COSMETIC = anatomyCosmetic;
+export const ANATOMY_IMPLANT = anatomyImplant;
+export const ANATOMY_ORTHO = anatomyOrtho;
+export const ANATOMY_ROOT_CANAL = anatomyRootCanal;
+
 export const GALLERY_IMAGES = [
   clinicPhoto1,
   clinicReception,
   clinicTreatment,
 ];
 
-import logoImg from './Damodar_Dental_Care_Logo.png';
-export const LOGO = logoImg;
+export const LOGO = '/favicon.png';

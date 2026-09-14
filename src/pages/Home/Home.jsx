@@ -8,6 +8,7 @@ import About from '../../features/About/About';
 import Services from '../../features/Services/Services';
 import Gallery from '../../features/Gallery/Gallery';
 import DoctorProfile from '../../features/Doctor/DoctorProfile';
+import PatientGuideCTA from '../../features/PatientGuideCTA/PatientGuideCTA';
 import FAQ from '../../features/FAQ/FAQ';
 import Location from '../../features/Location/Location';
 
@@ -23,6 +24,7 @@ export default function Home() {
       <Services />
       <Gallery />
       <DoctorProfile />
+      <PatientGuideCTA />
       <FAQ />
       <Location />
     </main>
