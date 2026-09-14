@@ -1,0 +1,94 @@
+:root {
+  /* Strict Color Palette */
+  --cream: #F5F0E8;
+  --ink: #1A1A18;
+  --sage: #4A6B5B;
+  --bone: #E8E2D6;
+  --rust: #8B4A3C;
+  --mist: #C8D5CC;
+  --offwhite: #FAFAF7;
+
+  /* Layout */
+  --nav-height: 80px;
+  --container-width: 1440px;
+  --container-padding: clamp(20px, 5vw, 64px);
+
+  /* Animation Easing (used outside Framer) */
+  --ease-primary: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Reset & Basics */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto; /* Handled by GSAP/smooth scrolling if needed, keep auto to avoid conflicts */
+}
+
+body {
+  background-color: var(--cream);
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Focus outline for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+
+/* Utility layout container */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Custom Thin Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mist);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage);
+}

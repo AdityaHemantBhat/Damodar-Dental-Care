@@ -1,0 +1,91 @@
+.testimonialsSection {
+  background-color: var(--bone);
+  padding: 120px 0 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ink);
+}
+
+.marqueeContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Fades out the edges using a CSS mask */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marqueeContent {
+  display: flex;
+  width: fit-content;
+  animation: marquee 30s linear infinite;
+  gap: 40px;
+  padding: 20px 0;
+}
+
+.marqueeContent:hover {
+  animation-play-state: paused;
+}
+
+.testimonialCard {
+  width: 400px;
+  flex-shrink: 0;
+  background-color: var(--cream);
+  padding: 40px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-4px);
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.quote {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.name {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: auto;
+}
+
+.dividerWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .testimonialCard {
+    width: 300px;
+    padding: 32px;
+  }
+}

@@ -1,0 +1,66 @@
+.gallerySection {
+  background-color: var(--ink);
+  padding: 120px 0 160px;
+  position: relative;
+  z-index: 1;
+}
+
+.galleryInner {
+  position: relative;
+  z-index: 2;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--cream);
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* CSS Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.itemWrapper {
+  /* removed break-inside for grid */
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Uniform tall aspect ratio */
+  border-radius: 12px; /* Clean, symmetrical rounded corners */
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dividerWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}

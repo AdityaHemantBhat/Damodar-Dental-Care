@@ -1,0 +1,207 @@
+.servicesSection {
+  background-color: var(--cream);
+  padding: 120px 0 160px;
+  position: relative;
+}
+
+.servicesInner {
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ink);
+}
+
+.viewAll {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--sage);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.viewAll:hover {
+  opacity: 0.7;
+}
+
+.viewAll span {
+  transition: transform 0.3s ease;
+}
+
+.viewAll:hover span {
+  transform: translateX(4px);
+}
+
+/* Bento Box CSS Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, minmax(280px, auto));
+  gap: 24px;
+}
+
+.gridItem {
+  display: block;
+}
+
+/* Card Styles */
+.card {
+  position: relative;
+  background-color: var(--bone);
+  border-radius: 24px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  transition: transform 0.4s var(--ease-primary), box-shadow 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cardImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-primary);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  z-index: 1;
+}
+
+.cardInner {
+  position: relative;
+  z-index: 2;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  margin-bottom: 24px;
+  background-color: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--cream);
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* Size Modifiers for Bento Grid */
+.size-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.size-wide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.size-small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.size-large .cardTitle {
+  font-size: var(--text-2xl);
+}
+
+.dividerWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .size-large {
+    grid-column: span 2;
+  }
+  .size-wide {
+    grid-column: span 2;
+  }
+  .size-small {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(240px, auto);
+  }
+  .size-large, .size-wide, .size-small {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}

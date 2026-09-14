@@ -1,0 +1,10 @@
+export const CLINIC_NAME = "Damodar Dental Care";
+export const PHONE = "+91 7387962652";
+export const WHATSAPP_NUMBER = "917387962652";
+export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hello, I'd like to enquire about dental services at Damodar Dental Care.`;
+export const EMAIL = "info@damodardental.in";
+export const ADDRESS = "Bldg B, 2nd Floor, Reliance Center, B-205, Padre Miranda Rd, Pajifond, Madgaon, Goa 403601";
+export const MAPS_LINK = "https://maps.app.goo.gl/ccb5Q1ZCNgj47W5M9?g_st=aw";
+export const MAPS_EMBED = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3849.521255653606!2d73.96105051105436!3d15.275525260170014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb3b902023c93%3A0x38d0afc31824cb22!2sDamodar%20Dental%20Care!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
+export const INSTAGRAM = "https://instagram.com/damodardental";
+export const FACEBOOK = "https://facebook.com/damodardental";

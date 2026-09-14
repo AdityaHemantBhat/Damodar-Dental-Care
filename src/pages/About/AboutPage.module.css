@@ -1,0 +1,196 @@
+.pageWrapper {
+  background-color: var(--offwhite);
+  min-height: 100dvh;
+  padding-bottom: 80px;
+}
+
+/* 1. Heritage Hero */
+.hero {
+  padding: 160px 0 100px;
+  background-color: var(--cream);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 80px);
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--sage);
+  line-height: 1.6;
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 2. Doctor Story */
+.storySection {
+  padding: 120px 0;
+  background-color: var(--ink);
+  color: var(--cream);
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.doctorPhotoWrapper {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 24px 120px 24px 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.doctorPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.storyHeadline {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--sage);
+  margin-bottom: 32px;
+}
+
+.storyText p {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--mist);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.credentialsList {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.credentialItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+  color: var(--cream);
+  font-size: var(--text-sm);
+  letter-spacing: 0.5px;
+}
+
+/* 3. Core Pillars */
+.pillarsSection {
+  padding: 120px 0;
+  background-color: var(--offwhite);
+}
+
+.pillarsHeader {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.pillarsTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ink);
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.pillarCard {
+  background-color: var(--cream);
+  padding: 48px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pillarIcon {
+  color: var(--sage);
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.pillarTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.pillarDesc {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--sage);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .heroGrid, .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+  
+  .heroImageWrapper, .doctorPhotoWrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .credentialItem {
+    justify-content: center;
+  }
+  
+  .pillarsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 0 80px;
+  }
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+  }
+  .doctorPhotoWrapper {
+    border-radius: 24px 80px 24px 24px;
+  }
+}

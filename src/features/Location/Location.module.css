@@ -1,0 +1,146 @@
+.locationSection {
+  background-color: var(--cream);
+  padding: 120px 0 160px;
+  position: relative;
+}
+
+.locationInner {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  align-items: center;
+  gap: 64px;
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.addressBlock {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.icon {
+  color: var(--sage);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.addressText {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.hoursBlock {
+  background-color: var(--bone);
+  padding: 32px;
+  border-radius: 4px;
+}
+
+.hoursTitle {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--sage);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.hoursTable {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hoursRow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--mist);
+  padding-bottom: 16px;
+}
+
+.hoursRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.day {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.time {
+  font-family: var(--font-body);
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+.contactBlock {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+}
+
+.contactItem {
+  margin-bottom: 8px;
+}
+
+.contactLabel {
+  color: var(--sage);
+  margin-right: 8px;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.mapReveal {
+  height: 100%;
+}
+
+.mapWrapper {
+  width: 100%;
+  height: clamp(400px, 60vh, 600px);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--bone);
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.dividerWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .locationInner {
+    grid-template-columns: 1fr;
+  }
+  .mapWrapper {
+    height: 400px;
+  }
+}

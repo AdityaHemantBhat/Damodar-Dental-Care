@@ -1,0 +1,367 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 9000;
+  transition: background-color 0.4s var(--ease-primary), box-shadow 0.4s var(--ease-primary);
+  display: flex;
+  align-items: center;
+}
+
+.scrolled {
+  background-color: var(--cream);
+  /* Removed standard box-shadow because the SVG drop-shadow will handle it */
+}
+
+.navWave {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: clamp(30px, 5vw, 60px);
+  margin-top: -1px; /* Prevent subpixel gap */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-primary);
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.06));
+}
+
+.navWave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.showWave {
+  opacity: 1;
+}
+
+.navInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* ensures it sits above the absolute wave */
+  z-index: 2;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoTextWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--sage);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--rust);
+  letter-spacing: 1px;
+  margin-top: 4px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.logoImg {
+  height: 60px; /* Adjust based on the actual logo proportions */
+  width: 60px; /* Enforce square for perfect circle */
+  object-fit: cover;
+  border-radius: 50%; /* Make it circular */
+  mix-blend-mode: multiply; /* Helps remove the white background on light surfaces */
+}
+
+@media (max-width: 480px) {
+  .logoImg {
+    height: 48px;
+    width: 48px;
+  }
+  .logoText {
+    font-size: var(--text-md);
+  }
+  .tagline {
+    display: none;
+  }
+}
+
+.desktopNav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+}
+
+.megaMenuContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--cream);
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s var(--ease-primary);
+  width: max-content;
+  max-width: 600px;
+  padding: 24px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.megaMenuContainer:hover .megaMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.megaMenuGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.megaMenuItem {
+  padding: 12px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.megaMenuItem:hover {
+  background-color: var(--bone);
+}
+
+.megaMenuItem h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--sage);
+  font-weight: 600;
+}
+
+.megaMenuItem p {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--ink);
+  opacity: 0.7;
+}
+
+.navLink {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--ink);
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--sage);
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  stroke: var(--sage);
+  stroke-width: 2px;
+  fill: none;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.4s var(--ease-out);
+}
+
+.active .underline {
+  stroke-dashoffset: 0;
+}
+.navLink:hover .underline {
+  stroke-dashoffset: 0;
+}
+
+.menuBtn {
+  display: block;
+  color: var(--ink);
+}
+
+@media (min-width: 768px) {
+  .menuBtn {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  background-color: var(--ink);
+  z-index: 9900;
+  display: flex;
+  flex-direction: column;
+  padding: 100px clamp(20px, 5vw, 64px) 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mobileWatermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(250px, 60vw, 400px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+  filter: grayscale(100%) contrast(150%);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 24px;
+  right: clamp(20px, 5vw, 64px);
+  color: var(--cream);
+  padding: 8px;
+  z-index: 10;
+}
+
+.mobileLinks {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: auto;
+  margin-bottom: 60px;
+}
+
+.mobileLinkWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.mobileLinkNum {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--sage);
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.mobileLink {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 10vw, 64px);
+  color: var(--cream);
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+.mobileLink:hover {
+  color: var(--sage);
+}
+
+.mobileServicesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobileLinkTitle {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 10vw, 64px);
+  color: var(--cream);
+  line-height: 1;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mobileSubLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 36px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  margin-left: 10px;
+}
+
+.mobileSubLink {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--mist);
+  opacity: 0.8;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.mobileSubLink:hover {
+  opacity: 1;
+  color: var(--sage);
+}
+
+.mobileFooter {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobileFooterText {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--mist);
+}
+
+.mobileFooter a {
+  color: var(--cream);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--sage);
+  text-underline-offset: 4px;
+}
+
+.mobileFooter a:hover {
+  color: var(--sage);
+}

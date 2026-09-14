@@ -1,0 +1,16 @@
+{
+  "name": "Damodar Dental Care",
+  "short_name": "Damodar Dental",
+  "description": "Premium dental clinic in Margao, Goa.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F0E8",
+  "theme_color": "#4A6B5B",
+  "icons": [
+    {
+      "src": "/logo/damodar-logo.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

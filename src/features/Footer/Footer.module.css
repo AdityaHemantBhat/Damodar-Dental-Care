@@ -1,0 +1,138 @@
+.footerSection {
+  background-color: var(--ink);
+  color: var(--cream);
+  padding: 100px 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(20);
+  opacity: 0.02;
+  color: var(--cream);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.footerInner {
+  position: relative;
+  z-index: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 80px;
+}
+
+.logo {
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.logoImg {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.blurb {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--mist);
+  line-height: 1.6;
+  max-width: 400px;
+  margin-bottom: 32px;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socials a {
+  color: var(--cream);
+  transition: color 0.3s ease;
+  padding: 8px;
+  border: 1px solid var(--mist);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials a:hover {
+  color: var(--sage);
+  border-color: var(--sage);
+}
+
+.colTitle {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--sage);
+  margin-bottom: 24px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.links a, .links li {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--mist);
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--cream);
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright, .credit {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--mist);
+}
+
+.credit {
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .col:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .bottomBar {
+    flex-direction: column;
+    text-align: center;
+  }
+}

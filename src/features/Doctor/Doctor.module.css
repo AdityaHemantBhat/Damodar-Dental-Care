@@ -1,0 +1,138 @@
+.doctorSection {
+  background-color: var(--cream);
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0; /* Add padding to the section */
+}
+
+.doctorInner {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: center; /* Center items vertically */
+}
+
+.imageCol {
+  width: 40%; /* Shrink the column */
+  position: relative;
+  padding-left: clamp(20px, 5vw, 60px); /* Keep it contained */
+}
+
+.imageWrapper {
+  width: 100%;
+  border-radius: 8px; /* Give it nice corners */
+  overflow: hidden;
+  /* Add fade to bottom so harsh cut edges blend into background */
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contentCol {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  padding: 40px clamp(40px, 8vw, 120px);
+}
+
+.contentInner {
+  max-width: 600px;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--ink);
+  margin-bottom: 40px;
+}
+
+.quoteBlock {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 40px;
+}
+
+.quoteBlock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background-color: var(--sage);
+}
+
+.quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.manifesto {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--ink);
+  opacity: 0.8;
+  margin-bottom: 48px;
+}
+
+.credentialsList h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--sage);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.credentialsList ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.credentialsList li {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--ink);
+  opacity: 0.8;
+  position: relative;
+  padding-left: 16px;
+}
+
+.credentialsList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--sage);
+}
+
+@media (max-width: 1024px) {
+  .doctorInner {
+    flex-direction: column;
+  }
+  .imageCol, .contentCol {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .imageCol {
+    margin-bottom: 20px;
+  }
+  .imageWrapper {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .contentCol {
+    padding: 20px;
+  }
+}
