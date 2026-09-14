@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { MessageCircle, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
@@ -5,8 +6,21 @@ import { WHATSAPP_LINK, PHONE } from '../../lib/constants';
 import styles from './FloatingCTA.module.css';
 
 export default function FloatingCTA() {
-  const progress = useScrollProgress();
-  const isVisible = progress > 0.05; // Show after small scroll
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // The Hero section is pinned for 200vh - 250vh.
+      // We only want the Floating CTA to appear AFTER the user has fully scrolled past the Hero section.
+      if (window.scrollY > window.innerHeight * 2) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <AnimatePresence>

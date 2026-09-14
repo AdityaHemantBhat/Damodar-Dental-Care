@@ -39,3 +39,5 @@ export const GALLERY_IMAGES = [
 ];
 
 export const LOGO = '/favicon.png';
+import tooth3d from './tooth_3d.png';
+export const TOOTH_3D = tooth3d;

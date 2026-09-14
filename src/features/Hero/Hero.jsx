@@ -1,42 +1,86 @@
-import { useEffect, useRef } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { gsap } from '../../lib/gsap';
-import { HERO_IMAGE } from '../../assets/images';
+import { TOOTH_3D } from '../../assets/images';
 import { PHONE, WHATSAPP_LINK } from '../../lib/constants';
 import SvgDivider from '../../components/SvgDivider/SvgDivider';
-import HeroSvgMask from './HeroSvgMask';
 import Button from '../../components/Button/Button';
 import styles from './Hero.module.css';
 
 export default function Hero() {
   const container = useRef(null);
-  const imageRef = useRef(null);
+  const toothRef = useRef(null);
+  const textLeftRef = useRef(null);
+  const textCenterRef = useRef(null);
+  const bgWrapperRef = useRef(null);
 
-  useEffect(() => {
-    const el = container.current;
-    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const charsRef = useRef([]);
 
-    gsap.to(imageRef.current, {
-      y: 40,
-      ease: "none",
-      scrollTrigger: {
-        trigger: el,
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 641px)", () => {
+        // Desktop Animation
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top top",
+            end: "+=250%", // Sped up the animation slightly
+            scrub: 1, // Reduced lag for a faster feel
+            pin: true,
+          }
+        });
+
+        tl.to(toothRef.current, { scale: 0.7, rotation: 15, xPercent: 50, ease: "power2.inOut", duration: 1 }, 0);
+        tl.to(textCenterRef.current, { opacity: 0, y: -50, ease: "power2.inOut", duration: 0.5 }, 0);
+        tl.fromTo(textLeftRef.current, { opacity: 0, x: -50 }, { opacity: 1, x: 0, ease: "power2.inOut", duration: 0.3 }, 0.2);
+        
+        // Typewriter effect synced to scroll (fast)
+        tl.fromTo(charsRef.current, { opacity: 0 }, { opacity: 1, stagger: 0.01, duration: 0.05, ease: "none" }, 0.3);
+      });
+
+      mm.add("(max-width: 640px)", () => {
+        // Mobile Animation
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top top",
+            end: "+=200%", // Sped up for mobile
+            scrub: 1,
+            pin: true,
+          }
+        });
+
+        tl.to(toothRef.current, { scale: 0.8, rotation: 10, yPercent: -50, ease: "power2.inOut", duration: 1 }, 0);
+        tl.to(textCenterRef.current, { opacity: 0, y: -50, ease: "power2.inOut", duration: 0.5 }, 0);
+        tl.fromTo(textLeftRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, ease: "power2.inOut", duration: 0.3 }, 0.2);
+        
+        // Typewriter effect synced to scroll (fast)
+        tl.fromTo(charsRef.current, { opacity: 0 }, { opacity: 1, stagger: 0.01, duration: 0.05, ease: "none" }, 0.3);
+      });
+    }, container);
+
+    return () => ctx.revert();
   }, []);
 
   const headline = "Where Goa Smiles Best";
   const words = headline.split(' ');
+  const secondaryHeadline = "Damodar Dental Care".split('');
 
   return (
     <section ref={container} className={styles.heroSection}>
-      <div className={`container ${styles.heroInner}`}>
-        <div className={styles.content}>
-          <h1 className={styles.headline}>
+      <div ref={bgWrapperRef} className={styles.heroInner}>
+        
+        {/* The Giant 3D Tooth */}
+        <div className={styles.toothWrapper}>
+          <img ref={toothRef} src={TOOTH_3D} alt="Premium 3D Tooth" className={styles.toothImage} />
+        </div>
+
+        {/* Initial Center Text */}
+        <div ref={textCenterRef} className={styles.textCenter}>
+          <h1 className={styles.headlineCenter}>
             {words.map((word, i) => (
               <span key={i} className={styles.wordMask}>
                 <motion.span
@@ -51,45 +95,36 @@ export default function Hero() {
             ))}
           </h1>
           <motion.p 
-            className={styles.subtext}
+            className={styles.subtextCenter}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            Crafted smiles, rooted in Goa. Experience premium dental care with an artisanal approach in Margao.
+            Scroll to discover the art of modern dentistry.
           </motion.p>
-          
-          <motion.div 
-            className={styles.ctaGroup}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-          >
+        </div>
+
+        {/* Secondary Left Text (appears after scrolling) */}
+        <div ref={textLeftRef} className={styles.textLeft}>
+          <h2 className={styles.headlineLeft}>
+            {secondaryHeadline.map((char, i) => (
+              <span key={i} ref={el => charsRef.current[i] = el}>
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </h2>
+          <p className={styles.subtextLeft}>
+            Crafted smiles, rooted in Goa. Experience ultra-premium dental care with an artisanal approach in Margao.
+          </p>
+          <div className={styles.ctaGroup}>
             <Button as="a" href={`tel:${PHONE}`} variant="primary">
               Call for Consultation
             </Button>
-            
-            <Button as="a" href={WHATSAPP_LINK} variant="ghost" className={styles.whatsappBtn}>
+            <Button as="a" href={WHATSAPP_LINK} target="_blank" rel="noreferrer" variant="outline" className={styles.whatsappBtn}>
               <MessageCircle size={18} />
               Chat on WhatsApp
             </Button>
-          </motion.div>
-        </div>
-
-        <div className={styles.visual}>
-          <motion.div
-            initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ delay: 0.4, duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-            className={styles.imageWrapper}
-          >
-            <div className={styles.svgClipMask}>
-              <img ref={imageRef} src={HERO_IMAGE} alt="Clinic Interior" className={styles.image} />
-            </div>
-            
-            {/* Decorative Outline */}
-            <HeroSvgMask className={styles.decorativeOutline} />
-          </motion.div>
+          </div>
         </div>
       </div>
       
