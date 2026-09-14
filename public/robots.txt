@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://damodardental.in/sitemap.xml
+Sitemap: https://damodardental.co.in/sitemap.xml

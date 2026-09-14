@@ -42,7 +42,6 @@ export default function Footer() {
             <h4 className={styles.colTitle}>Quick Links</h4>
             <ul className={styles.links}>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/services">Services</Link></li>
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>

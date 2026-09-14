@@ -5,8 +5,8 @@ export function LocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "Dentist",
     "name": CLINIC_NAME,
-    "image": "https://damodardental.in/og-image.jpg",
-    "url": "https://damodardental.in",
+    "image": "https://damodardental.co.in/og-image.jpg",
+    "url": "https://damodardental.co.in",
     "telephone": PHONE,
     "address": {
       "@type": "PostalAddress",
