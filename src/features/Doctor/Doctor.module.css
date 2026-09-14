@@ -135,4 +135,27 @@
   .contentCol {
     padding: 20px;
   }
+  .contentInner {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .headline {
+    text-align: center;
+  }
+  .quoteBlock {
+    padding-left: 0;
+  }
+  .quoteBlock::before {
+    display: none;
+  }
+  .credentialsList ul {
+    align-items: center;
+  }
+  .credentialsList li {
+    padding-left: 0;
+  }
+  .credentialsList li::before {
+    position: relative;
+    margin-right: 8px;
+  }
 }

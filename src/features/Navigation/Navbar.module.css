@@ -103,7 +103,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
   .desktopNav {
     display: flex;
     gap: 40px;
@@ -216,7 +216,7 @@
   color: var(--ink);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
   .menuBtn {
     display: none;
   }
