@@ -1,5 +1,6 @@
 import doctorPhoto from './Damodar_Bhat.png';
 import clinicPhoto1 from './Clinic_Photo_1.jpeg';
+import clinicPhoto2 from './Clinic_Photo_2.jpeg';
 
 export const HERO_IMAGE = clinicPhoto1; 
 export const CLINIC_EXTERIOR = "https://picsum.photos/id/1021/800/600";
@@ -17,8 +18,8 @@ export const SERVICE_IMPLANTS = dentalImplants;
 export const SERVICE_ORTHO = orthodontics;
 export const SERVICE_ROOT_CANAL = rootCanal;
 
-import clinicReception from './clinic_reception.jpg';
-import clinicTreatment from './clinic_treatment.jpg';
+import kamatClinic1 from './Kamat_clinic.webp';
+import kamatClinic2 from './Kamat_clinic_2.webp';
 
 import anatomyGeneral from './anatomy_general_1789364298492.jpg';
 import anatomyCosmetic from './anatomy_cosmetic_1789364309828.jpg';
@@ -32,10 +33,14 @@ export const ANATOMY_IMPLANT = anatomyImplant;
 export const ANATOMY_ORTHO = anatomyOrtho;
 export const ANATOMY_ROOT_CANAL = anatomyRootCanal;
 
+import kamatClinic3 from './Kamat_clinic_3.webp';
+
 export const GALLERY_IMAGES = [
+  kamatClinic3,
+  kamatClinic1,
+  kamatClinic2,
   clinicPhoto1,
-  clinicReception,
-  clinicTreatment,
+  clinicPhoto2,
 ];
 
 export const LOGO = '/favicon.png';
