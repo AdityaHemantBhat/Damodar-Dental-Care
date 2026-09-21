@@ -77,6 +77,46 @@
   line-height: 1.4;
 }
 
+.highlightBox {
+  background-color: rgba(74, 107, 91, 0.05); /* very light sage */
+  border: 1px solid rgba(74, 107, 91, 0.2); /* subtle sage border */
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlightHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.highlightIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--rust);
+}
+
+.highlightTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  color: var(--sage);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.highlightText {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0;
+}
+
 .manifesto {
   font-family: var(--font-body);
   font-size: var(--text-base);
