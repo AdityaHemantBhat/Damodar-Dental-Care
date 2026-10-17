@@ -3,6 +3,7 @@ import Lenis from 'lenis';
 import 'lenis/dist/lenis.css'; // Add lenis base css just in case
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 
 import PageTransition from './components/PageTransition/PageTransition';
 import Navbar from './features/Navigation/Navbar';
@@ -78,6 +79,7 @@ function App() {
       </AnimatePresence>
       <Footer />
       <FloatingCTA />
+      <Analytics />
     </>
   );
 }
